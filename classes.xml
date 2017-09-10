@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doc version="3.0.alpha.custom_build" name="Engine Types">
+<class name="Sole" inherits="Reference" category="Core">
+	<brief_description>
+		Sole provides interface to create UUID versions 0, 1 and 4.
+	</brief_description>
+	<description>
+		Use v1 if you are worried about leaving it up to probabilities.
+		Use v4 if you are worried about security issues and determinism.
+		UUID version 0 (16-bit PID + 48-bit MAC address + 60-bit clock with a resolution of 100ns since Unix epoch)
+		Format is EPOCH_LOW-EPOCH_MID-VERSION(0)|EPOCH_HI-PID-MAC
+	</description>
+	<methods>
+		<method name="base62" qualifiers="const">
+			<return type="String">
+			</return>
+			<description>
+				Create a cooked base62 string
+			</description>
+		</method>
+		<method name="get_version" qualifiers="const">
+			<return type="int" enum="Sole.UUID_VERSION">
+			</return>
+			<description>
+			</description>
+		</method>
+		<method name="pretty" qualifiers="const">
+			<return type="String">
+			</return>
+			<description>
+				Create a pretty decomposed report
+			</description>
+		</method>
+		<method name="set_version">
+			<return type="void">
+			</return>
+			<argument index="0" name="version" type="int" enum="Sole.UUID_VERSION">
+			</argument>
+			<description>
+			</description>
+		</method>
+		<method name="uuid" qualifiers="const">
+			<return type="String">
+			</return>
+			<description>
+				Creates an UUID
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="version" type="int" setter="set_version" getter="get_version" brief="" enum="Sole.UUID_VERSION">
+			The version of the uuid generator
+		</member>
+	</members>
+	<constants>
+		<constant name="VERSION_0" value="0">
+			UUID v0, pro: unique; cons: MAC revealed, pid revealed, predictable.
+		</constant>
+		<constant name="VERSION_1" value="1">
+			UUID v1, pro: unique; cons: MAC revealed, predictable.
+		</constant>
+		<constant name="VERSION_4" value="2">
+			UUID v4, pros: anonymous, fast; con: uuids "can clash"
+		</constant>
+	</constants>
+</class>
+</doc>
