@@ -27,10 +27,10 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
 /*************************************************************************/
 
+#include <core/reference.h>
+#include <core/class_db.h>
 #include "register_types.h"
 #include "sole.hpp"
-#include <core/class_db.h>
-#include <core/reference.h>
 
 class Sole : public Reference {
     GDCLASS(Sole, Reference);
